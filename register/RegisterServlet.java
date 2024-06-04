@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
         	Connection connection = DriverManager.getConnection(url,username,password); 
             if (userExists(connection, email)) {
                 out.println("User Already Exists for this Email Address!!");
-                return;
+                resp.sendRedirect("login.jsp");
             }
            String registerQuery = "INSERT INTO user ( full_name, email, password) VALUES (?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(registerQuery)){
