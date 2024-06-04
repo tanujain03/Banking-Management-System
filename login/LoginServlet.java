@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
                 statement.setString(2, pass);
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
-                        response.sendRedirect("welcome.jsp");
+                        response.sendRedirect("openAccount.jsp");
                     } else {
                         response.sendRedirect("Exit.jsp");
                     }
